@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto:wght@400;500;700;900&display=swap');
 
-body, h2 {
+body, h2, p {
     margin: 0;
     padding: 0;
     font-family:  'Roboto';
@@ -12,32 +12,39 @@ html {
   scroll-behavior: smooth;
 }
 
-h3, h2, .flex-end-btn a, .subscribe-btn, .fa-magnifying-glass, .logo, .footer-logo, .footer-right-col i, .read-more-btn, .third-section img, .last-section img {
+.grid {
+  display: grid;
+  gap: 10px;
+}
+
+main {
+  display: grid;
+  gap: 75px;
+}
+
+h3, h2, .flex-end-btn a, .subscribe-btn, .fa-magnifying-glass, .logo, .footer-logo, .footer-right-col i, .read-more-btn, section img {
     cursor: pointer;
     transition: all 0.3s ease-in-out;
 }
 
-.left-col p, .post-info p {
-  line-height: 1.6em;
+p {
+  line-height: 1.7em;
+}
+
+h3, h2 {
+  line-height: 1.3em;
 }
 
 .social a {
   transition: all 0.25s ease-in-out;
 }
 
-h3:hover, h2:hover {
-    transform: scale(1.03);
+h3:hover, h2:hover, .flex-end-btn a:hover, .fa-magnifying-glass:hover {
     color: #6A0B0B;
 }
 
 .subscribe-btn:hover, .social i:hover, .read-more-btn:hover {
   transform: scale(1.05) !important;
-}
-
-.social a:hover {
-  transform: scale(1.11);
-  color: #EBEBEB;
-  background: #000000;
 }
 
 .social a:hover {
@@ -54,19 +61,13 @@ h3:hover, h2:hover {
 
 .flex-end-btn a:hover, .fa-magnifying-glass:hover {
   transform: scale(1.08);
-  color: #6A0B0B;
 }
-
-
-
-
 
 /*  START HEADER CSS  */
  
 header {
     border-bottom: 1px solid #D9D9D9;
 }
-
 
   .header-wrapper {
   width: 1120px;
@@ -183,21 +184,20 @@ nav a {
     border-left: 1px solid #DDDDDD;
 }
 
-
-
 /*  END END CSS  */
 
 /*  START MAIN CONTENT CSS  */
 
 h2 {
     font-size: 1.75vw;
+
 }
 
 .four h3, .three h3 {
   font-size: clamp(13px, 1.15vw, 20px)
 }
 
-.hero-container {
+section:first-child {
     display: flex;
     justify-content: top;
     align-items: left;
@@ -211,36 +211,39 @@ h2 {
     margin: 0 auto;
     position: relative;
     display: flex;
-    gap: 4%;
+    gap: 40px;
+}
+
+.info-wrapper {
+  display: grid;
+  gap: 20px;
+  justify-items: start;
 }
 
 .left-col {
     width: 60%;
     z-index: 7;
-}
-
-.left-col h2 {
-    margin-top: 4vw;
+    display: grid;
+    justify-items: left;
+    align-content: start;
+    gap: 80px;
 }
 
 .left-col p {
-    margin-top: 1.5%;
-    padding-bottom: 1.5vw;
-    font-size: clamp(13px, .95vw, 16px);
+    font-size: clamp(13px, 1.95vw, 16px);
 }
 
 .flex-end-btn {
     display: flex;
     align-items: center;
     justify-content: end;
-    padding-top:  5%;
+    padding-top:  3%;
     font-weight: 700 !important;
 }
 
 .flex-end-btn i:before {
   padding-left: 10px;
 }
-
 
 .read-more-btn {
     background: black;
@@ -252,7 +255,10 @@ h2 {
 }
 
 .right-col {
-    width: 40%;
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .right-col h3 {
@@ -264,11 +270,6 @@ h2 {
     font-size: clamp(13px, 1.05vw, 20px);
 }
 
-.right-col p {
-    font-weight: 400;
-    padding-bottom: 1%;
-}
-
 .heading-text {
     font-weight: 900 !important;
     padding-bottom: 2%;
@@ -276,13 +277,12 @@ h2 {
 
 .posts-hero {
     border-bottom: 1px solid #D9D9D9;
-    padding-bottom: 1%;
+    padding-bottom: 5%;
 }
 
-
-.left-col div  {
+.left-col .badge-wrapper, .left-col .badge  {
     position: static;
-    height: 45vh !important;
+    height: 40vh !important;
     width: 100%;
     border-radius: 5px;
     z-index: 7;
@@ -312,12 +312,11 @@ h2 {
   align-items: bottom;
 }
 
-
 .absolute-image {
     position: absolute;
     z-index:  -1;
     border-radius: 0px 5px 5px 0px;
-    height: 55vh;
+    height: 50vh;
     width: 37vw;
 }
 
@@ -333,26 +332,22 @@ h2 {
     font-family: "Open Sans" !important;
 }
 
-
-.second-section {
-    padding: 75px 0;
+section:nth-child(2) {
     display: flex;
     justify-content: end;
-}
-
-.third-section {
-    padding-bottom: 75px;
 }
 
 .container {
     width: 1120px;
     max-width: 65vw;
+    display: grid;
+    gap: 24px;
     margin: 0 auto;
     padding-top: 24px;
     border-top: 1px solid #D24545;
 }
 
-.last-section {
+section:last-child {
     background: #B53838;
     padding-bottom: 75px;
     padding-top: 4%;
@@ -361,29 +356,27 @@ h2 {
 .last-container {
     width: 1120px;
     max-width: 65vw;
+    display: grid;
+    gap: 24px;
     margin: 0 auto;
     padding-top: 2%;
     border-top: 1px solid #ffffff;
 }
 
-.third-section {
-    padding-top: 2%;
-}
-
-.third-section h3 {
-    font-weight: 400;
+section h3 {
+    font-weight: 500;
     margin: 0;
     margin-top: 2%;
 }
 
-.third-section p {
+section p {
     font-weight: 400;
     margin: 0;
     color: #2F2F2F;
-    font-size: clamp(12px, .8vw, 14px) !important;
+    font-size: clamp(12px, .8vw, 16px);
 }
 
-.last-container h2 {
+section:last-child h2 {
     color: white;
 }
 
@@ -401,8 +394,7 @@ h2 {
     max-width: 65vw;
     margin: 0 auto;
     display: flex;
-    gap: 4%;
-    margin-top: 2%;
+    gap: 40px;
 }
 
 .posts img {
@@ -410,37 +402,35 @@ h2 {
     border-radius: 5px;
 }
 
-.last-section h3, .last-section p {
+section:last-child h3, section:last-child p {
     color: white;
     font-weight: 400;
     margin: 0;
 }
 
-.last-section p {
+section:last-child p {
     font-size: clamp(12px, 0.85vw, 14px);
 }
 
-.last-section h3 {
+section:last-child h3 {
     margin-top: 3%;
 }
 
 .third-container {
     display: flex;
-    gap: 4%;
+    gap: 40px;
   }
   
   .left-container,
   .right-container {
     width: 50%;
     display: flex;
-    padding-top: 30px;
   }
 
   .left-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 8%;
-
+    gap: 40px;
   }
   
   .blog-post {
@@ -454,15 +444,6 @@ h2 {
     justify-content: left;
     gap: 24px;
   }
-
-  .right-container .blog-post:nth-child(1) {
-        padding-right: 0;
-  }
-
-
-  .left-container .blog-post {
-    min-width: 45%;
-  }
   
   .blog-post img {
     max-width: 100%;
@@ -471,9 +452,8 @@ h2 {
   }
   
   .post-info {
-    padding-top: 10px;
     display: grid;
-    gap: 8%;
+    gap: 10px;
     justify-items: left;
   }
   
@@ -483,7 +463,6 @@ h2 {
     font-family: "Open Sans";
   }
 
-  
   .post-info h3 {
     margin-top: 10px;
     margin-bottom: 5px;
@@ -503,7 +482,6 @@ h2 {
     color: black;  
 }
 
-  
   .post-info a {
     display: inline-block;
     padding: 5px 0;
@@ -513,11 +491,7 @@ h2 {
     text-decoration: none;
     font-size: clamp(13px, .9vw, 16px);
     transition: all 0.3s ease-in-out;
-  }
-
-  .flex-end-btn.third {
-        margin-top: -3%;
-  }
+  } 
   
   .post-info a:hover {
     color: #D24545;
@@ -526,12 +500,18 @@ h2 {
   }
   
   .grid-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: 50% 50%;
+    display: flex;
     grid-gap: 40px;
-    width: 1425px !important;
-    max-width: 81.9vw !important;
+    width: 1510px !important;
+    max-width: 82vw !important;
+  }
+
+  .grid-container .left-container {
+    width: 70%;
+  }
+
+  .grid-container .right-container {
+    width: 30%;
   }
   
   .post {
@@ -567,10 +547,6 @@ h2 {
     color: #D24545;
   }
 
-  .post5 {
-    background: #D24545;
-  }
-
   .post5 div {
     padding: 5% 7.5% !important;
     border: 1px solid #DFDFDF;
@@ -597,40 +573,14 @@ h2 {
     margin-top: 0%;
     font-size: clamp(14px, 1.05vw, 20px);
   }
-
-  .post1 {
-    grid-column: 1 / span 1;
-    grid-row: 1 / span 1;
- 
-  }
-  
-  .post2 {
-    grid-column: 2 / span 1;
-    grid-row: 1 / span 1;
-
-  }
-  
-  .post3 {
-    grid-column: 3 / span 1;
-    grid-row: 1 / span 2;
-  }
-  
-  .post4 {
-    grid-column: 1 / span 1;
-    grid-row: 2 / span 1;
-  }
   
   .post5 {
-    grid-column: 2 / span 1;
-    grid-row: 2 / span 1;
+    background: #D24545;
   }
-  
 
-  
-.heading-text.latest {
-  margin: 0 !important;
-  margin-bottom: 5% !important;
-}
+  .post3 p {
+    font-weight: 700 !important;
+  }
 
 .badge {
   display: flex;
@@ -668,9 +618,6 @@ h2 {
   color: white !important;   
 }
 /*  END MAIN CONTENT CSS  */
-
-
-
 
 
 /*  START FOOTER CONTENT CSS  */
@@ -741,22 +688,30 @@ footer li:first-child {
 /*  END FOOTER CONTENT CSS  */
 
 @Media (min-width: 1301px) and (max-width: 1600px) {
-  .grid-container {
-    grid-gap: 25px;
+  .grid-container, .grid-container .left-container {
+    grid-gap: 30px;
+}
+
+.left-col .badge-wrapper, .left-col .badge {
+  height: 22vw !important;
+}
+
+.left-col {
+  gap: 50px;
+}
+
+.absolute-image {
+  height: 27vw;
 }
 }
 
 @Media (min-width: 768px) and (max-width: 1300px) {
   .post div {
-    padding: 1.5vw
+    padding: 2.5vw
   }
 
-  .left-col p {
-    padding-bottom: 1vw;
-}
-
-.left-col h2 {
-  margin-top: 5.5vw;
+  .post5 div {
+    padding: 3% 7.5% !important;
 }
 
 .right-col p {
@@ -764,8 +719,16 @@ footer li:first-child {
   padding-bottom: 0% !important;
 }
 
-.flex-end-btn {
-  padding-top: 4%;
+.left-col .badge-wrapper, .left-col .badge {
+  height: 22vw !important;
+}
+
+.left-col {
+  gap: 50px;
+}
+
+.absolute-image {
+  height: 27vw;
 }
 
 .post-info p:nth-child(1) {
@@ -774,36 +737,49 @@ footer li:first-child {
   margin-top: -1vw;
 }
 
-.post-info {
-  gap: 6%;
+.post-info, .info-wrapper {
+  gap: 10px;
 }
 
-.blog-post h3 {
-  font-weight: 500;
+.blog-post h3{
+  font-weight: 500 !important;
 }
 
-.post p {
+.post p, .info-wrapper p {
   font-size: clamp(10px, 1vw, 16px) !important;
 }
 
 .post h3 {
-  font-size: clamp(12px, 1.05vw, 20px);
+  font-size: clamp(11px, 1.35vw, 20px);
 }
 
-.left-col div {
-  height: 26vw !important;
+.grid-container, .grid-container .left-container{
+  gap: 25px;
 }
 
-.absolute-image {
-  height: 31vw;
+.grid-container .left-container {
+  width: 69%;
 }
 
-.grid-container {
-  grid-gap: 20px;
+.left-container, .third-container, .posts-container {
+  gap: 30px;
+}
+
+.blog-post, .posts {
+  gap: 10px;
 }
 }
 
 @Media (min-width: 768px) and (max-width: 1024px) {
+
+h2 {
+  font-size: 2.6vw;
+}
+
+section p {
+  font-size: clamp(10.5px, .8vw, 14px) !important;
+}
+
 .row-1 {
   height: 5vw;
 }
@@ -814,6 +790,10 @@ footer li:first-child {
 
 .subscribe-btn {
   padding: 8px 16px;
+}
+
+.left-col .badge-wrapper, .left-col .badge {
+  height: 25vw !important;
 }
 
 .hero-wrapper, .container, .posts-container, .last-container, .footer-container, .header-wrapper {
@@ -847,6 +827,10 @@ footer li:first-child {
 
 .desktop {
   display: none; 
+}
+
+.blog-post, .posts {
+  gap: 10px;
 }
 
 .post3 div {
@@ -950,7 +934,6 @@ footer li:first-child {
   transition: transform 0.3s ease;
 }
 
-
 header ul {
   grid-template-columns: 1fr !important;
   padding: 6vw 10vw;
@@ -966,7 +949,6 @@ header a {
   margin-right: 16px;
 }
 
-
 .show {
   display: block !important;
   animation: slideInFromLeft 0.3s forwards;
@@ -981,12 +963,18 @@ header a {
   }
 }
 
-
 .left-container h3 {
-  font-size: clamp(13px, 3.55vw, 20px);
+  font-size: clamp(13px, 5vw, 20px);
   font-weight: 500;
 }
 
+.left-container .blog-post h3 {
+  font-size: clamp(13px, 3.8vw, 20px);
+}
+
+.right-container h3 {
+  font-size: clamp(18px, 5.2vw, 24px);
+}
 
 .hamburger {
   display: block;
@@ -1031,11 +1019,7 @@ header a {
 .hamburger.close .line:nth-child(3) {
   transform: rotate(-45deg) translate(5px, -5px);
 }
-
-
-
 /*  END HEADER  CSS  */
-
 
 /*  START MAIN CONTENT CSS  */
 h2 {
@@ -1055,10 +1039,10 @@ h2 {
 }
 
 .post div {
-  padding: 12vw;
+  padding: 10vw;
 }
 
-.posts-container, .third-container, .footer-right-col {
+.posts-container, .third-container, .footer-right-col, .container, .posts-container, .last-container, .hero-wrapper, .footer-container, .footer-left-col, nav ul {
     display: grid;
 }
 
@@ -1077,31 +1061,39 @@ h2 {
     font-size: 4vw;
 }
 
-
 .three, .four, .left-container, .right-container, .left-col, .right-col  {
     width: 100% !important;
 }
 
-.third-section .right-container {
+.right-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.left-container {
+  display: grid;
+  grid-template-columns: auto;
+}
+
+#section1 .left-container {
+  grid-template-columns: 1fr 1fr;
+}
+
+section .right-container {
     order: -1;
     margin-bottom: 8vw;
 }
 
-p {
-    line-height: 1.7em;
+.container, .posts-container, .last-container, .posts-container, .left-container, .grid-container {
+    gap: 30px;
 }
 
-h3, h2 {
-    line-height: 1.3em;
+.hero-wrapper {
+  gap: 60px;
 }
 
-.hero-wrapper, .container, .posts-container, .last-container {
-    max-width: 80vw;
-    display: grid;
-}
-
-.header-wrapper {
-  max-width: 80vw;
+.header-wrapper, .hero-wrapper, .container, .posts-container, .last-container, .grid-container, .footer-container {
+  max-width: 80vw !important;
 }
 
 .right-col h3 {
@@ -1112,31 +1104,17 @@ h3, h2 {
     font-size: 3.3vw;
 }
 
-.left-col div {
-    height: 45vw !important;
-}
-
-.left-col {
-    display: grid;
-    justify-items: left;
-    gap: 15px;
-}
-
 p.heading-text.latest {
-    font-size: 5.3vw;
-}
-
-.meta {
-    font-size: clamp(13px, 3.6vw, 18px) !important;
-}
-
-.left-col p {
-    font-size: clamp(13px, 3.5vw, 18px) !important;
+    font-size: 5.3vw !important;
 }
 
 .absolute-image {
   height: 60vw;
   width: 65vw;
+}
+
+.left-col .badge-wrapper, .left-col .badge {
+  height: 46vw !important;
 }
 
 .hero-wrapper {
@@ -1145,56 +1123,25 @@ p.heading-text.latest {
 
 .read-more-btn {
     padding: 4% 11%;
-    font-size: clamp(13px, 3.5vw, 18px) !important;
 }
 
-.container h2 {
-    margin-bottom: 3%;
+.post-info a, .read-more-btn, .left-col p, .meta {
+    font-size: clamp(13px, 3.8vw, 16px);
 }
 
-.third-section {
-    padding-top: 13vw;
-}
-
-.post-info a {
-    font-size: clamp(13px, 4vw, 16px);
-}
-
-.last-section {
-    margin-top: 33vw;
+section:last-child {
     padding-top: 15vw;
-    padding-bottom: 35vw;
-}
-
-.posts-container {
-    gap: 3%;
-    margin-top: 6vw;
-}
-
-.left-container {
-    gap: 6%;
-}
-
-.blog-post {
-    gap: 2vw;
-}
-
-.left-col h2 {
-  margin-top: 10.5vw;
+    padding-bottom: 75px;
 }
 
 .grid-container {
   display: flex;
   flex-direction: column;
-  gap: 30px;
-  width: 1425px !important;
-  max-width: 80vw !important;
   margin: 0 auto;
 }
 
 .post3 {
   order: -2;
-  aspect-ratio: 1 / 1;
 }
 
 .post .meta {
@@ -1205,24 +1152,12 @@ p.heading-text.latest {
   order: -1;
 }
 
-section.second-section {
-  padding: 0;
-  margin-top: 40vw;
-}
-
 .post5 div {
-  margin: 5%;
+  margin: 9%;
 }
 /*  END MAIN CONTENT CSS  */
 
-
-
 /*  START FOOTER CSS  */
-.footer-container {
-    width: 1120px;
-    max-width: 65vw;
-    display: grid;
-}
 
 .footer-logo {
     height: 17.6vw;
@@ -1235,13 +1170,11 @@ footer {
 }
 
 nav ul {
-    display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 6vw;
 }
 
 .footer-left-col {
-    display: grid;
     align-content: center !important;
     justify-items: center;
     gap: 35px;
