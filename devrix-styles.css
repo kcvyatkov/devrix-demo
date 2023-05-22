@@ -807,7 +807,11 @@ section p, .post p {
 }
 
 p.meta  {
-  font-size: clamp(.65rem, 1.3vw, .9rem) !important;
+  font-size: clamp(.65rem, 1vw, .9rem) !important;
+}
+
+.post3 div {
+  padding: 4% 6%  !important;
 }
 }
 
