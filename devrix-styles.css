@@ -998,7 +998,7 @@ header a {
 }
 
 .left-container h3 {
-  font-size: clamp(13px, 5vw, 20px);
+  font-size: clamp(13px, 4.5vw, 20px);
   font-weight: 500;
 }
 
