@@ -21,3 +21,15 @@ fetch('https://api.openweathermap.org/data/2.5/weather?q=Sofia,bg&appid=b756f2f2
             hamburger.classList.toggle('close');
             });
         });
+        
+        
+                var prevScrollpos = window.pageYOffset;
+window.onscroll = function() {
+  var currentScrollPos = window.pageYOffset;
+  if (prevScrollpos > currentScrollPos) {
+    document.getElementById("navbar").style.top = "0px";
+  } else {
+    document.getElementById("navbar").style.top = "-145px";
+  }
+  prevScrollpos = currentScrollPos;
+}
