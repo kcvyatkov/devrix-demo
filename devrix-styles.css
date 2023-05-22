@@ -336,10 +336,6 @@ section:first-child {
     padding-left: 1.3rem;
 }
 
-.meta {
-    font-family: "Open Sans" !important;
-}
-
 section:nth-child(2) {
     display: flex;
     justify-content: end;
@@ -486,8 +482,8 @@ section:last-child h3 {
 }
 
 .meta {
-    font-size: clamp(13px, .8vw, 16px) !important;
-    color: black;  
+    font-size: clamp(11px, .8vw, 16px);
+    font-family: "Open Sans" !important;
 }
 
   .post-info a {
@@ -734,6 +730,10 @@ footer li:first-child {
   gap: 3px;
 }
 
+.meta, .flex-end-btn a {
+  font-size: clamp(11px, 1.4vw, 16px) !important;
+}
+
 p.heading-text.latest {
        font-size: clamp(.7rem, 1vw, 1.2rem) !important;
 }
@@ -774,7 +774,7 @@ p.heading-text.latest {
   font-weight: 500 !important;
 }
 
-.info-wrapper p, .flex-end-btn a {
+.info-wrapper p {
   font-size: clamp(10px, 1vw, 16px) !important;
 }
 
@@ -1167,8 +1167,12 @@ p.heading-text.latest {
     padding: 4% 11%;
 }
 
-.post-info a, .read-more-btn, .left-col p, .meta {
+.post-info a, .read-more-btn, .left-col p {
     font-size: clamp(13px, 3.8vw, 16px);
+}
+
+.meta {
+  font-size: clamp(11px, 3.3vw, 16px) !important;
 }
 
 section:last-child {
