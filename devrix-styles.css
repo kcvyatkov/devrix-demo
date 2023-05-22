@@ -799,7 +799,7 @@ p.heading-text.latest {
 }
 
 section p, .post p {
-  font-size: clamp(.65rem, .8vw, .9rem) !important;
+  font-size: clamp(.8rem, .8vw, .9rem) !important;
 }
 }
 
@@ -807,6 +807,14 @@ section p, .post p {
 
 h2 {
   font-size: 2.6vw;
+}
+
+.meta {
+  font-size: clamp(11px, 1.5vw, 16px) !important;
+}
+
+.flex-end-btn a {
+  font-size: clamp(11px, 1.8vw, 16px) !important;
 }
 
 .row-1 {
@@ -1201,6 +1209,10 @@ section:last-child {
 
 .post5 div {
   margin: 9%;
+}
+
+.left-container .meta {
+  font-size: clamp(11px, 1.4vw, 16px) !important;
 }
 /*  END MAIN CONTENT CSS  */
 
