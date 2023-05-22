@@ -846,7 +846,8 @@ h2 {
 .footer-container {
   display: grid;
   justify-content: center;
-  align-items: center;
+  align-content: center;
+  gap: 20px;
 }
 
 .footer-right-col {
