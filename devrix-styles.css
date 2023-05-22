@@ -801,6 +801,14 @@ p.heading-text.latest {
 section p, .post p {
   font-size: clamp(.8rem, .8vw, .9rem) !important;
 }
+
+.posts-hero p {
+  font-size: clamp(.6rem, .8vw, .9rem) !important;
+}
+
+p.meta  {
+  font-size: clamp(.65rem, 1.3vw, .9rem) !important;
+}
 }
 
 @Media (min-width: 768px) and (max-width: 1024px) {
@@ -860,6 +868,10 @@ h2 {
 
 .footer-right-col {
   justify-content: center;
+}
+
+.g10 p {
+    font-size: clamp(.8rem, 1.5vw, 1rem) !important;
 }
 }
 
