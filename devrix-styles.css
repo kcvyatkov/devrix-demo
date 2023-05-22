@@ -875,7 +875,7 @@ h2 {
 }
 
 .g10 p {
-    font-size: clamp(.8rem, 1.5vw, 1rem) !important;
+    font-size: clamp(.75rem, 1.4vw, 1rem) !important;
 }
 }
 
