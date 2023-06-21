@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="chart-container">
+        <div id="chart">
+          <div class="chart-section" data-percent="30"></div>
+          <div class="chart-section" data-percent="20"></div>
+          <div class="chart-section" data-percent="15"></div>
+          <div class="chart-section" data-percent="25"></div>
+          <div class="chart-section" data-percent="10"></div>
+        </div>
+        <div id="chart-data">
+          <ul>
+            <li><span class="color" style="background-color: #ff6384;"></span>Section 1</li>
+            <li><span class="color" style="background-color: #36a2eb;"></span>Section 2</li>
+            <li><span class="color" style="background-color: #cc65fe;"></span>Section 3</li>
+            <li><span class="color" style="background-color: #ffce56;"></span>Section 4</li>
+            <li><span class="color" style="background-color: #4bc0c0;"></span>Section 5</li>
+          </ul>
+          <div id="tooltip"></div>
+        </div>
+      </div>
+      
+      
+      
+
+      <style>
+.chart-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 500px;
+}
+
+#chart {
+  position: relative;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+}
+
+.chart-section {
+  position: absolute;
+  width: 50%;
+  height: 50%;
+  transform-origin: 100% 100%;
+  background: transparent;
+  border-radius: 100% 0 0 0;
+}
+
+.chart-section:nth-child(1) {
+  background-color: #ff6384;
+  transform: rotate(0deg);
+}
+
+.chart-section:nth-child(2) {
+  background-color: #36a2eb;
+  transform: rotate(72deg);
+}
+
+.chart-section:nth-child(3) {
+  background-color: #cc65fe;
+  transform: rotate(144deg);
+}
+
+.chart-section:nth-child(4) {
+  background-color: #ffce56;
+  transform: rotate(216deg);
+}
+
+.chart-section:nth-child(5) {
+  background-color: #4bc0c0;
+  transform: rotate(288deg);
+}
+
+#chart-data {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  font-family: Arial, sans-serif;
+}
+
+#chart-data ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#chart-data li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+  color: #333;
+  font-size: 14px;
+  opacity: 0.8;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+#chart-data li:hover {
+  opacity: 1;
+}
+
+.color {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin-right: 5px;
+}
+
+#tooltip {
+  position: absolute;
+  display: none;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  padding: 5px;
+  font-size: 12px;
+  border-radius: 4px;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.chart-container:hover .chart-section:hover {
+  opacity: 0.7;
+}
+
+.chart-container:hover .chart-section:hover ~ #tooltip {
+  display: block;
+}
+
+.chart-container:hover .chart-section:hover ~ #tooltip:before {
+  content: attr(data-percent) '%';
+}
+
+.chart-container:hover .chart-section:hover ~ #tooltip:before,
+.chart-container:hover .chart-section:hover ~ #tooltip:after {
+  position: absolute;
+  bottom: 50%;
+  transform: translateY(50%);
+}
+
+.chart-container:hover .chart-section:nth-child(1) ~ #tooltip:before {
+  right: 0;
+}
+
+.chart-container:hover .chart-section:nth-child(2) ~ #tooltip:before {
+  right: 100%;
+}
+
+.chart-container:hover .chart-section:nth-child(3) ~ #tooltip:before {
+  left: 100%;
+}
+
+.chart-container:hover .chart-section:nth-child(4) ~ #tooltip:before {
+  left: 100%;
+}
+
+.chart-container:hover .chart-section:nth-child(5) ~ #tooltip:before {
+  left: 0;
+}
+
+.chart-container:hover .chart-section ~ #tooltip:after {
+  content: "";
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 4px;
+}
+
+.chart-container:hover .chart-section:nth-child(1) ~ #tooltip:after {
+  right: -8px;
+  border-color: transparent transparent transparent rgba(0, 0, 0, 0.8);
+}
+
+.chart-container:hover .chart-section:nth-child(2) ~ #tooltip:after {
+  right: calc(100% - 8px);
+  border-color: transparent rgba(0, 0, 0, 0.8) transparent transparent;
+}
+
+.chart-container:hover .chart-section:nth-child(3) ~ #tooltip:after {
+  left: calc(100% - 8px);
+  border-color: transparent rgba(0, 0, 0, 0.8) transparent transparent;
+}
+
+.chart-container:hover .chart-section:nth-child(4) ~ #tooltip:after {
+  left: calc(100% - 8px);
+  border-color: transparent transparent transparent rgba(0, 0, 0, 0.8);
+}
+
+.chart-container:hover .chart-section:nth-child(5) ~ #tooltip:after {
+  left: -8px;
+  border-color: transparent transparent rgba(0, 0, 0, 0.8) transparent;
+}
+
+
+
+
+      </style>
+
+      <script>
+const chartData = document.getElementById('chart-data');
+const chartSlices = document.querySelectorAll('#chart-data li');
+const tooltip = document.getElementById('tooltip');
+
+chartSlices.forEach((slice, index) => {
+  const percent = slice.getAttribute('data-percent');
+
+  slice.addEventListener('mouseover', () => {
+    const chart = document.getElementById('chart');
+    chart.style.transform = `rotate(${index * 72}deg)`;
+
+    tooltip.textContent = `${slice.textContent}: ${percent}%`;
+    tooltip.style.display = 'block';
+  });
+
+  slice.addEventListener('mouseout', () => {
+    const chart = document.getElementById('chart');
+    chart.style.transform = 'rotate(-90deg)';
+    tooltip.style.display = 'none';
+  });
+
+  slice.addEventListener('mousemove', (e) => {
+    const chartContainer = document.querySelector('.chart-container');
+    const containerRect = chartContainer.getBoundingClientRect();
+    const tooltipWidth = tooltip.offsetWidth;
+    const tooltipHeight = tooltip.offsetHeight;
+
+    const x = e.clientX - containerRect.left;
+    const y = e.clientY - containerRect.top;
+
+    const tooltipX = x - tooltipWidth / 2;
+    const tooltipY = y - tooltipHeight - 10;
+
+    tooltip.style.transform = `translate(${tooltipX}px, ${tooltipY}px)`;
+  });
+});
+
+
+
+
+      </script>
+</body>
+</html>

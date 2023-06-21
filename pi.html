@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="chart-container">
+        <div class="pie-chart">
+          <div class="slice" id="slice1"></div>
+          <div class="slice" id="slice2"></div>
+          <div class="slice" id="slice3"></div>
+          <div class="slice" id="slice4"></div>
+          <div class="slice" id="slice5"></div>
+        </div>
+      </div>
+
+      <style>
+
+         
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #chart-container {
+  width: 300px;
+  height: 300px;
+  position: relative;
+  perspective: 800px;
+}
+
+.pie-chart {
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transform: rotateX(60deg) rotateY(0deg);
+  animation: spin 5s infinite linear;
+}
+
+.slice {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  transform-origin: 50% 50%;
+}
+
+#slice1 {
+  background-color: #f44336; /* red */
+  transform: rotateY(0deg) translateZ(150px);
+}
+
+#slice2 {
+  background-color: #2196f3; /* blue */
+  transform: rotateY(72deg) translateZ(150px);
+}
+
+#slice3 {
+  background-color: #4caf50; /* green */
+  transform: rotateY(144deg) translateZ(150px);
+}
+
+#slice4 {
+  background-color: #ffc107; /* yellow */
+  transform: rotateY(216deg) translateZ(150px);
+}
+
+#slice5 {
+  background-color: #9c27b0; /* purple */
+  transform: rotateY(288deg) translateZ(150px);
+}
+
+@keyframes spin {
+  0% {
+    transform: rotateX(60deg) rotateY(0deg);
+  }
+  100% {
+    transform: rotateX(60deg) rotateY(1turn);
+  }
+}
+
+      </style>
+</body>
+</html>
